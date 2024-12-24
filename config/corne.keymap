@@ -15,13 +15,13 @@
 / {
 
         behaviors {
-        td0: tap_dance_0 {
-                compatible = "zmk,behavior-tap-dance";
-                #binding-cells = <0>;
-                tapping-term-ms = <190>;
-                bindings = <&kp LSHFT>, <&caps_word>, <&kp CAPS>;
+                tap_dance_0: tap_dance_0 {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <190>;
+                        bindings = <&kp LSHFT>, <&caps_word>, <&kp CAPS>;
+                };
         };
-    };
 
         keymap {
                 compatible = "zmk,keymap";
