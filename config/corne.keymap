@@ -3,8 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
- // https://nickcoutsos.github.io/keymap-editor/
+// https://nickcoutsos.github.io/keymap-editor/
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -65,6 +64,18 @@
             #binding-cells = <0>;
             bindings = <&to 0>, <&to 5>, <&to 6>;
         };
+
+        mod_ht: mod_ht {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_HT";
+            bindings = <&mo>, <&mo>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <100>;
+            hold-trigger-on-release;
+            hold-while-undecided-linger;
+            hold-while-undecided;
+        };
     };
 
     combos {
@@ -89,13 +100,12 @@
         compatible = "zmk,keymap";
 
         default_layer {
-
             display-name = "Base";
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R     &kp T      &kp Y      &kp U      &kp I      &kp O    &kp P     &hold_tap LC(BSPC) BACKSPACE
-&kp LCTRL  &kp A  &kp S  &kp D     &kp F     &kp G      &kp H      &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
-&caps_tap  &kp Z  &kp X  &kp C     &kp V     &kp B      &kp N      &kp M      &kp COMMA  &kp DOT  &kp FSLH  &hold_tap ESC GRAVE
-                         &kp LGUI  &left_td  &kp RET    &kp SPACE  &right_td  &kp RALT
+&kp TAB    &kp Q  &kp W  &kp E     &kp R        &kp T      &kp Y      &kp U      &kp I      &kp O    &kp P     &hold_tap LC(BSPC) BACKSPACE
+&kp LCTRL  &kp A  &kp S  &kp D     &kp F        &kp G      &kp H      &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
+&caps_tap  &kp Z  &kp X  &kp C     &kp V        &kp B      &kp N      &kp M      &kp COMMA  &kp DOT  &kp FSLH  &hold_tap ESC GRAVE
+                         &kp LGUI  &mod_ht 3 1  &kp RET    &kp SPACE  &right_td  &kp RALT
             >;
         };
 
