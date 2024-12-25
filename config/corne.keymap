@@ -116,12 +116,12 @@
                 &kp TAB           &kp Q  &kp W  &kp E     &kp R  &kp T      &kp Y      &kp U                         &kp I                     &kp O                          &kp P                         &kp BSPC
                 &caps_tap         &kp A  &kp S  &kp D     &kp F  &kp G      &kp H      &hold_tap LEFT_PARENTHESIS J  &hold_tap LEFT_BRACKET K  &hold_tap RIGHT_PARENTHESIS L  &hold_tap RIGHT_BRACKET SEMI  &kp SQT
                 &kp LEFT_CONTROL  &kp Z  &kp X  &kp C     &kp V  &kp B      &kp N      &kp M                         &kp COMMA                 &hold_tap EXCL DOT             &kp FSLH                      &hold_tap ESC GRAVE
-                                          &kp LGUI  &mo LAYER_FUNCTION  &kp RET    &kp SPACE  &to LAYER_NUMBERS     &kp RALT
+                                          &kp LGUI  &mo LAYER_NAVIGATION  &kp RET    &kp SPACE  &to LAYER_NUMBERS     &kp RALT
             >;
         };
 
         numbers {
-            display-name = "numbers";
+            display-name = "Numbers";
             bindings = <
                 &kp TAB           &kp N1  &kp N2  &kp N3     &kp N4           &kp N5       &kp N6                &kp N7        &kp N8        &kp N9        &kp N0                 &kp BACKSPACE
                 &caps_tap         &trans  &none   &kp EQUAL  &kp PLUS         &kp MINUS    &kp LEFT_PARENTHESIS  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp RIGHT_PARENTHESIS  &trans
@@ -146,7 +146,7 @@
                 &trans            &mkp MB4  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &mkp MB5    &kp PAGE_UP    &trans    &kp UP_ARROW  &trans     &kp PRINTSCREEN  &kp C_MUTE
                 &trans            &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans      &kp C_AC_HOME  &kp LEFT  &kp DOWN      &kp RIGHT  &kp END          &kp C_VOLUME_UP
                 &kp LEFT_CONTROL  &trans    &trans          &trans          &trans           &trans      &kp PAGE_DOWN  &trans    &trans        &trans     &trans           &kp C_VOLUME_DOWN
-                                                    &trans          &trans           &trans      &trans         &trans    &trans
+                                                    &trans          &trans           &trans      &trans         &trans    &kp RALT
             >;
         };
 
@@ -162,19 +162,19 @@
         };
 
         dvorak {
+			display-name = "Dvorak";
             bindings = <
                 &kp TAB    &hold_tap EXCLAMATION APOS  &kp COMMA  &kp DOT   &kp P  &kp Y        &kp F      &kp G  &kp C     &kp R  &kp L  &kp BSPC
                 &caps_tap  &kp A                       &kp O      &kp E     &kp U  &kp I        &kp D      &kp H  &kp T     &kp N  &kp S  &kp MINUS
                 &kp LCTRL  &kp SEMI                    &kp Q      &kp J     &kp K  &kp X        &kp B      &kp M  &kp W     &kp V  &kp Z  &kp SLASH
-                                                          &kp LGUI  &to LAYER_FUNCTION  &kp ENTER    &kp SPACE  &to LAYER_NUMBERS  &kp RALT
+                                                          &kp LGUI  &mo LAYER_NAVIGATION  &kp ENTER    &kp SPACE  &to LAYER_NUMBERS  &kp RALT
             >;
-            label = "Dvorak";
         };
 
-        extra_1 { status = "reserved"; };
+        // extra_1 { status = "reserved"; };
 
-        extra_2 { status = "reserved"; };
+        // extra_2 { status = "reserved"; };
 
-        extra_3 { status = "reserved"; };
+        // extra_3 { status = "reserved"; };
     };
 };
