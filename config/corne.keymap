@@ -68,13 +68,11 @@
         mod_ht: mod_ht {
             compatible = "zmk,behavior-hold-tap";
             label = "MOD_HT";
-            bindings = <&mo>, <&mo>;
+            bindings = <&to>, <&to>;
 
             #binding-cells = <2>;
             tapping-term-ms = <100>;
-            hold-trigger-on-release;
-            hold-while-undecided-linger;
-            hold-while-undecided;
+            flavor = "tap-preferred";
         };
     };
 
