@@ -71,7 +71,7 @@
         mod_ht: mod_ht {
             compatible = "zmk,behavior-hold-tap";
             label = "MOD_HT";
-            bindings = <&mo>, <&tog>;
+            bindings = <&tog>, <&tog>;
 
             #binding-cells = <2>;
             flavor = "hold-preferred";
@@ -118,7 +118,7 @@
                                           &trans     &trans     &trans       &trans  &trans       &trans
             >;
 
-            label = "Left";
+            display-name = "Left";
         };
 
         right {
@@ -129,7 +129,7 @@
                               &trans            &trans         &trans    &trans         &trans    &trans
             >;
 
-            label = "Right";
+            display-name = "Right";
         };
 
         lower_layer {
