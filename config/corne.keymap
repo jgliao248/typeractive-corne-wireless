@@ -39,6 +39,8 @@
             label = "LEFT_TD";
             #binding-cells = <0>;
             bindings = <&to 1>, <&to 3>, <&to 0>;
+
+            tapping-term-ms = <100>;
         };
 
         default_hold: default_hold {
@@ -54,7 +56,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "RIGHT_TD";
             #binding-cells = <0>;
-            bindings = <&to 2>, <&mo 4>, <&to 0>;
+            bindings = <&to 2>, <&to 4>, <&to 0>;
         };
 
         combo_td: combo_td {
