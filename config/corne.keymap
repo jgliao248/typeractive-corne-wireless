@@ -155,7 +155,7 @@
 &bt BT_CLR_ALL  &trans        &trans        &trans           &trans        &trans          &trans  &trans  &trans  &trans   &trans   &trans
                                             &kp LC(LA(DEL))  &tog 2        &trans          &trans  &none   &trans
             >;
-			status = "enabled";
+			status = "ok";
         };
 
         dvorak {
