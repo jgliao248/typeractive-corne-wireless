@@ -8,6 +8,10 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
 
@@ -115,10 +119,10 @@
         numbers {
             display-name = "numbers";
             bindings = <
-&kp TAB           &kp N1  &kp N2  &kp N3     &kp N4           &kp N5       &kp N6                &kp N7           &kp N8           &kp N9           &kp N0                 &kp BACKSPACE
-&caps_tap         &trans  &none   &kp EQUAL  &kp PLUS         &kp MINUS    &kp LEFT_PARENTHESIS  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp RIGHT_PARENTHESIS  &trans
-&kp LEFT_CONTROL  &trans  &trans  &kp CARET  &kp KP_MULTIPLY  &kp SLASH    &kp KP_NUMBER_0       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans                 &trans
-                                  &kp LGUI   &to 0            &kp RET      &kp SPACE             &to 2            &kp RALT
+&kp TAB           &kp N1  &kp N2  &kp N3     &kp N4           &kp N5       &kp N6                &kp N7        &kp N8        &kp N9        &kp N0                 &kp BACKSPACE
+&caps_tap         &trans  &none   &kp EQUAL  &kp PLUS         &kp MINUS    &kp LEFT_PARENTHESIS  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp RIGHT_PARENTHESIS  &trans
+&kp LEFT_CONTROL  &trans  &trans  &kp CARET  &kp KP_MULTIPLY  &kp SLASH    &kp N0                &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans                 &trans
+                                  &kp LGUI   &to 0            &kp RET      &kp SPACE             &to 2         &kp RALT
             >;
         };
 
@@ -133,25 +137,24 @@
         };
 
         navigation {
+			display-name = "Navigation";
             bindings = <
-&trans  &trans  &trans        &kp LC(UP_ARROW)  &trans         &trans    &kp PAGE_UP    &trans    &kp UP_ARROW  &trans     &kp PRINTSCREEN  &kp K_MUTE
-&trans  &trans  &kp LC(LEFT)  &kp LC(DOWN)      &kp LC(RIGHT)  &trans    &kp C_AC_HOME  &kp LEFT  &kp DOWN      &kp RIGHT  &kp END          &kp C_VOLUME_UP
-&trans  &trans  &trans        &trans            &trans         &trans    &kp PAGE_DOWN  &trans    &trans        &trans     &trans           &kp C_VOLUME_DOWN
-                              &trans            &trans         &trans    &trans         &trans    &trans
+&trans            &mkp MB4  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &mkp MB5    &kp PAGE_UP    &trans    &kp UP_ARROW  &trans     &kp PRINTSCREEN  &kp C_MUTE
+&trans            &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans      &kp C_AC_HOME  &kp LEFT  &kp DOWN      &kp RIGHT  &kp END          &kp C_VOLUME_UP
+&kp LEFT_CONTROL  &trans    &trans          &trans          &trans           &trans      &kp PAGE_DOWN  &trans    &trans        &trans     &trans           &kp C_VOLUME_DOWN
+                                            &trans          &trans           &trans      &trans         &trans    &trans
             >;
-
-            label = "Navigation";
         };
 
         function {
+			display-name = "Functions";
             bindings = <
 &kp F1          &kp F2        &kp F3        &kp F4           &kp F5        &kp F6          &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
 &bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &trans  &trans   &trans   &trans
 &bt BT_CLR_ALL  &trans        &trans        &trans           &trans        &trans          &trans  &trans  &trans  &trans   &trans   &trans
                                             &kp LC(LA(DEL))  &tog 2        &trans          &trans  &none   &trans
             >;
-
-            label = "Function";
+			status = "enabled";
         };
 
         dvorak {
