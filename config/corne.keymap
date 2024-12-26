@@ -113,8 +113,8 @@
         default_layer {
             display-name = "Base";
             bindings = <
-                &kp TAB           &kp Q  &kp W  &kp E     &kp R  &kp T      &kp Y      &kp U                         &kp I                     &kp O                          &kp P                         &kp BSPC
-                &caps_tap         &kp A  &kp S  &kp D     &kp F  &kp G      &kp H      &hold_tap LEFT_PARENTHESIS J  &hold_tap LEFT_BRACKET K  &hold_tap RIGHT_PARENTHESIS L  &hold_tap RIGHT_BRACKET SEMI  &kp SQT
+                &kp TAB           &kp Q  &kp W  &kp E     &kp R  &kp T      &kp Y      &hold_tap UNDER U                  &kp I                     &kp O                          &kp P                         &kp BSPC
+                &caps_tap         &kp A  &kp S  &kp D     &kp F  &kp G      &hold_tap MINUS H      &hold_tap LEFT_PARENTHESIS J  &hold_tap LEFT_BRACKET K  &hold_tap RIGHT_BRACKET L  &hold_tap RIGHT_PARENTHESIS SEMI  &kp SQT
                 &kp LEFT_CONTROL  &kp Z  &kp X  &kp C     &kp V  &kp B      &kp N      &kp M                         &kp COMMA                 &hold_tap EXCL DOT             &kp FSLH                      &hold_tap ESC GRAVE
                                           &kp LGUI  &mo LAYER_NAVIGATION  &kp RET    &kp SPACE  &to LAYER_NUMBERS     &kp RALT
             >;
