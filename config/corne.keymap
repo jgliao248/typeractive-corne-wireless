@@ -16,7 +16,7 @@
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
 
 / {
-    behaviors 
+    behaviors {
         caps_tap: caps_tap {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
