@@ -2,6 +2,7 @@
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
+ * https://nickcoutsos.github.io/keymap-editor/
  */
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
@@ -13,18 +14,6 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/pointing.h>
-
-// Define layer IDs
-
-#define LAYER_DEFAULT 0
-#define LAYER_NUMBERS 1
-#define LAYER_SYMBOLS 2
-#define LAYER_NAVIGATION 3
-#define LAYER_FUNCTION 4
-#define LAYER_DVORAK 5
-#define LAYER_EXTRA_1 6
-#define LAYER_EXTRA_2 7
-#define LAYER_EXTRA_3 8
 
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
 
@@ -50,18 +39,6 @@
             flavor = "tap-preferred";
         };
 
-        left_td: left_td {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LEFT_TD";
-            #binding-cells = <0>;
-            bindings =
-                <&to LAYER_DEFAULT>,
-                <&to LAYER_NUMBERS>,
-                <&to LAYER_DEFAULT>;
-
-            tapping-term-ms = <100>;
-        };
-
         kp_to: kp_to {
             compatible = "zmk,behavior-hold-tap";
             label = "KP_TO";
@@ -71,48 +48,18 @@
             tapping-term-ms = <190>;
             flavor = "tap-preferred";
         };
-
-        right_td: right_td {
-            compatible = "zmk,behavior-tap-dance";
-            label = "RIGHT_TD";
-            #binding-cells = <0>;
-            bindings =
-                <&to LAYER_EXTRA_3>,
-                <&to LAYER_FUNCTION>,
-                <&to LAYER_DEFAULT>;
-        };
-
-        combo_td: combo_td {
-            compatible = "zmk,behavior-tap-dance";
-            label = "COMBO_TD";
-            #binding-cells = <0>;
-            bindings =
-                <&to LAYER_DEFAULT>,
-                <&to LAYER_EXTRA_2>,
-                <&to LAYER_EXTRA_3>;
-        };
-
-        mod_ht: mod_ht {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOD_HT";
-            bindings = <&to>, <&to>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <100>;
-            flavor = "tap-preferred";
-        };
     };
 
     combos {
         compatible = "zmk,combos";
 
         combo_layer_change {
-            bindings = <&to LAYER_DEFAULT>;
+            bindings = <&to 0>; // Default Layer
             key-positions = <38 39>;
         };
 
         combo_dvorak {
-            bindings = <&to LAYER_DVORAK>;
+            bindings = <&to 5>; // Dvorak Layer
             key-positions = <15 38 39>;
         };
     };
@@ -172,10 +119,10 @@
         function {
             display-name = "Functions";
             bindings = <
-&kp F1          &kp F2        &kp F3        &kp F4           &kp F5             &kp F6                   &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2     &bt BT_SEL 3       &bt BT_SEL 4             &trans  &trans  &trans  &trans   &trans   &trans
-&bt BT_CLR_ALL  &trans        &trans        &trans           &trans             &trans                   &trans  &trans  &trans  &trans   &trans   &trans
-                                            &kp LC(LA(DEL))  &tog LAYER_DVORAK  &kp_to LEFT_CONTROL 2    &none   &none   &trans
+&kp F1          &kp F2        &kp F3        &kp F4           &kp F5        &kp F6                   &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4             &trans  &trans  &trans  &trans   &trans   &trans
+&bt BT_CLR_ALL  &trans        &trans        &trans           &trans        &trans                   &trans  &trans  &trans  &trans   &trans   &trans
+                                            &kp LC(LA(DEL))  &tog 5        &kp_to LEFT_CONTROL 2    &none   &none   &trans
             >;
 
             status = "ok";
@@ -190,9 +137,5 @@
                                                   &kp LGUI  &kp ENTER  &kp_to LEFT_CONTROL 3    &kp_to RIGHT_ALT 1  &kp SPACE  &kp GRAVE
             >;
         };
-
-        // extra_1 { status = "reserved"; };
-        // extra_2 { status = "reserved"; };
-        // extra_3 { status = "reserved"; };
     };
 };
