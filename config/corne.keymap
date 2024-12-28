@@ -62,9 +62,9 @@
             tapping-term-ms = <100>;
         };
 
-        hold_kp_tap_to: hold_kp_tap_to {
+        kp_to: kp_to {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_KP_TAP_TO";
+            label = "KP_TO";
             bindings = <&kp>, <&to>;
 
             #binding-cells = <2>;
@@ -132,50 +132,50 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&hold_tap ESCAPE DEL  &kp Q  &kp W  &kp E     &kp R      &kp T                             &kp Y                        &hold_tap UNDER U             &kp I                     &kp O                      &kp P                             &kp BSPC
-&kp TAB               &kp A  &kp S  &kp D     &kp F      &kp G                             &hold_tap MINUS H            &hold_tap LEFT_PARENTHESIS J  &hold_tap LEFT_BRACKET K  &hold_tap RIGHT_BRACKET L  &hold_tap RIGHT_PARENTHESIS SEMI  &kp SQT
-&caps_tap             &kp Z  &kp X  &kp C     &kp V      &kp B                             &kp N                        &kp M                         &kp COMMA                 &hold_tap EXCL DOT         &hold_tap BACKSLASH FSLH          &caps_tap
-                                    &kp LGUI  &kp ENTER  &hold_kp_tap_to LEFT_CONTROL 3    &hold_kp_tap_to RIGHT_ALT 1  &kp SPACE                     &kp GRAVE
+&hold_tap ESCAPE DEL  &kp Q  &kp W  &kp E     &kp R      &kp T                    &kp Y               &hold_tap UNDER U             &kp I                     &kp O                      &kp P                             &kp BSPC
+&kp TAB               &kp A  &kp S  &kp D     &kp F      &kp G                    &hold_tap MINUS H   &hold_tap LEFT_PARENTHESIS J  &hold_tap LEFT_BRACKET K  &hold_tap RIGHT_BRACKET L  &hold_tap RIGHT_PARENTHESIS SEMI  &kp SQT
+&caps_tap             &kp Z  &kp X  &kp C     &kp V      &kp B                    &kp N               &kp M                         &kp COMMA                 &hold_tap EXCL DOT         &hold_tap BACKSLASH FSLH          &caps_tap
+                                    &kp LGUI  &kp ENTER  &kp_to LEFT_CONTROL 3    &kp_to RIGHT_ALT 1  &kp SPACE                     &kp GRAVE
             >;
         };
 
         numbers {
             display-name = "Numbers";
             bindings = <
-&trans   &kp N1  &kp N2  &kp N3     &kp N4           &kp N5                            &kp N6                       &kp N7        &kp N8        &kp N9        &kp N0                 &kp BACKSPACE
-&kp TAB  &trans  &none   &kp EQUAL  &kp PLUS         &kp MINUS                         &kp LEFT_PARENTHESIS         &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp RIGHT_PARENTHESIS  &trans
-&trans   &trans  &trans  &kp CARET  &kp KP_MULTIPLY  &kp SLASH                         &kp N0                       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD             &trans
-                         &kp LGUI   &kp ENTER        &hold_kp_tap_to LEFT_CONTROL 0    &hold_kp_tap_to RIGHT_ALT 2  &kp SPACE     &trans
+&trans   &kp N1  &kp N2  &kp N3     &kp N4           &kp N5                   &kp N6                &kp N7        &kp N8        &kp N9        &kp N0                 &kp BACKSPACE
+&kp TAB  &trans  &none   &kp EQUAL  &kp PLUS         &kp MINUS                &kp LEFT_PARENTHESIS  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp RIGHT_PARENTHESIS  &trans
+&trans   &trans  &trans  &kp CARET  &kp KP_MULTIPLY  &kp SLASH                &kp N0                &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD             &trans
+                         &kp LGUI   &kp ENTER        &kp_to LEFT_CONTROL 0    &kp_to RIGHT_ALT 2    &kp SPACE     &trans
             >;
         };
 
         symbols {
             display-name = "Symbols";
             bindings = <
-&trans   &kp EXCL  &kp AT  &kp HASH  &kp DLLR   &kp PRCNT                         &kp CARET                    &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
-&kp TAB  &trans    &trans  &trans    &trans     &trans                            &kp MINUS                    &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&trans   &trans    &trans  &trans    &trans     &trans                            &kp UNDER                    &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                           &kp LGUI  &kp ENTER  &hold_kp_tap_to LEFT_CONTROL 1    &hold_kp_tap_to RIGHT_ALT 4  &kp SPACE  &trans
+&trans   &kp EXCL  &kp AT  &kp HASH  &kp DLLR   &kp PRCNT                &kp CARET           &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
+&kp TAB  &trans    &trans  &trans    &trans     &trans                   &kp MINUS           &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
+&trans   &trans    &trans  &trans    &trans     &trans                   &kp UNDER           &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
+                           &kp LGUI  &kp ENTER  &kp_to LEFT_CONTROL 1    &kp_to RIGHT_ALT 4  &kp SPACE  &trans
             >;
         };
 
         navigation {
             display-name = "Navigation";
             bindings = <
-&trans  &mkp MB4  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &mkp MB5                          &kp PAGE_UP                  &trans             &kp UP_ARROW       &trans             &kp PRINTSCREEN  &kp C_MUTE
-&trans  &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP                      &kp C_AC_HOME                &kp LEFT           &kp DOWN           &kp RIGHT          &kp END          &kp C_VOLUME_UP
-&trans  &trans    &trans          &trans          &trans           &msc SCRL_DOWN                    &kp PAGE_DOWN                &kp LA(LC(LS(A)))  &kp LS(LA(LC(D)))  &kp LS(LA(LC(M)))  &trans           &kp C_VOLUME_DOWN
-                                  &trans          &trans           &hold_kp_tap_to LEFT_CONTROL 0    &hold_kp_tap_to RIGHT_ALT 0  &trans             &trans
+&trans  &mkp MB4  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &mkp MB5                 &kp PAGE_UP         &trans             &kp UP_ARROW       &trans             &kp PRINTSCREEN  &kp C_MUTE
+&trans  &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP             &kp C_AC_HOME       &kp LEFT           &kp DOWN           &kp RIGHT          &kp END          &kp C_VOLUME_UP
+&trans  &trans    &trans          &trans          &trans           &msc SCRL_DOWN           &kp PAGE_DOWN       &kp LA(LC(LS(A)))  &kp LS(LA(LC(D)))  &kp LS(LA(LC(M)))  &trans           &kp C_VOLUME_DOWN
+                                  &trans          &trans           &kp_to LEFT_CONTROL 0    &kp_to RIGHT_ALT 0  &trans             &trans
             >;
         };
 
         function {
             display-name = "Functions";
             bindings = <
-&kp F1          &kp F2        &kp F3        &kp F4           &kp F5             &kp F6                            &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2     &bt BT_SEL 3       &bt BT_SEL 4                      &trans  &trans  &trans  &trans   &trans   &trans
-&bt BT_CLR_ALL  &trans        &trans        &trans           &trans             &trans                            &trans  &trans  &trans  &trans   &trans   &trans
-                                            &kp LC(LA(DEL))  &tog LAYER_DVORAK  &hold_kp_tap_to LEFT_CONTROL 2    &none   &none   &trans
+&kp F1          &kp F2        &kp F3        &kp F4           &kp F5             &kp F6                   &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2     &bt BT_SEL 3       &bt BT_SEL 4             &trans  &trans  &trans  &trans   &trans   &trans
+&bt BT_CLR_ALL  &trans        &trans        &trans           &trans             &trans                   &trans  &trans  &trans  &trans   &trans   &trans
+                                            &kp LC(LA(DEL))  &tog LAYER_DVORAK  &kp_to LEFT_CONTROL 2    &none   &none   &trans
             >;
 
             status = "ok";
@@ -184,10 +184,10 @@
         dvorak {
             display-name = "Dvorak";
             bindings = <
-&kp TAB    &hold_tap EXCLAMATION APOS  &kp COMMA  &kp DOT   &kp P                 &kp Y        &kp F      &kp G              &kp C     &kp R  &kp L  &kp BSPC
-&caps_tap  &kp A                       &kp O      &kp E     &kp U                 &kp I        &kp D      &kp H              &kp T     &kp N  &kp S  &kp MINUS
-&kp LCTRL  &kp SEMI                    &kp Q      &kp J     &kp K                 &kp X        &kp B      &kp M              &kp W     &kp V  &kp Z  &kp SLASH
-                                   &kp LGUI  &kp ENTER  &hold_kp_tap_to LEFT_CONTROL 3    &hold_kp_tap_to RIGHT_ALT 1  &kp SPACE                     &kp GRAVE
+&kp TAB    &hold_tap EXCLAMATION APOS  &kp COMMA  &kp DOT   &kp P      &kp Y                    &kp F               &kp G      &kp C      &kp R  &kp L  &kp BSPC
+&caps_tap  &kp A                       &kp O      &kp E     &kp U      &kp I                    &kp D               &kp H      &kp T      &kp N  &kp S  &kp MINUS
+&kp LCTRL  &kp SEMI                    &kp Q      &kp J     &kp K      &kp X                    &kp B               &kp M      &kp W      &kp V  &kp Z  &kp SLASH
+                                                  &kp LGUI  &kp ENTER  &kp_to LEFT_CONTROL 3    &kp_to RIGHT_ALT 1  &kp SPACE  &kp GRAVE
             >;
         };
 
