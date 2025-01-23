@@ -28,6 +28,10 @@
 #define MEDIA 5
 #define FUNCTION 6
 
+&mt {
+        tapping-term-ms = <250>;
+    };
+
 
 / {
     behaviors {
@@ -122,10 +126,6 @@
             bindings = <&kp LC(K) &kp C>;
             label = "VS_COMMENT";
         };
-    };
-
-    &mt {
-        tapping-term-ms = <250>;
     };
 
     keymap {
