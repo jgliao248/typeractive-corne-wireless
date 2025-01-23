@@ -173,7 +173,7 @@
             display-name = "Base";
             bindings = <
                 &mt ESCAPE DEL  &kp Q                 &kp W                 &mt EQUAL E         &kp R                   &kp T        &kp Y              &mt UNDER U        &kp I                      &kp O                  &mt PRINTSCREEN P   &kp BSPC
-                &kp TAB               &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G        &mt MINUS H  &mt RIGHT_SHIFT J  &mt RIGHT_CONTROL K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMI  &mt GRAVE SQT
+                &kp TAB               &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G        &hm_r MINUS H  &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r RIGHT_ALT L  &hm_r RIGHT_GUI SEMI  &hm_r GRAVE SQT
                 &layer SYMBOLS SYMBOLS         &kp Z                 &kp X                 &kp C                     &kp V                   &kp B        &kp N              &kp M                    &kp COMMA                  &mt EXCL DOT     &mt BACKSLASH FSLH  &layer SYMBOLS SYMBOLS
                                                                                 &layer NAVIGATION NAVIGATION                &layer NUMBERS NUMBERS              &kp ENTER    &kp SPACE          &layer NUMBERS NUMBERS               &layer NAVIGATION NAVIGATION 
             >;
