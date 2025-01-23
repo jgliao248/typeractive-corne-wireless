@@ -31,6 +31,9 @@
 #define HOLD_TAP_DURATION 175
 #define TO_LAYER_DURATION 150
 
+#define HM_TAPPING_TERM 280
+#define HM_PRIOR_IDLE 150
+
 #define BASE 0
 #define DVORAK 1
 #define NUMBERS 2
