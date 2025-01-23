@@ -20,6 +20,15 @@
 #define HOLD_TAP_DURATION 175
 #define TO_LAYER_DURATION 150
 
+#define BASE 0
+#define DVORAK 1
+#define NUMBERS 2
+#define SYMBOLS 3
+#define NAVIGATION 4
+#define MEDIA 5
+#define FUNCTION 6
+
+
 / {
     behaviors {
         caps_tap: caps_tap {
@@ -76,6 +85,15 @@
 
             tapping-term-ms = <TO_LAYER_DURATION>;
         };
+
+        layer: layer {
+            compatible = "zmk,behavior-hold-tap";
+            label = "layer";
+            bindings = <&mo>, <&to>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     combos {
@@ -109,13 +127,13 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        base {
             display-name = "Base";
             bindings = <
-                &hold_tap ESCAPE DEL  &kp Q                 &kp W                 &hold_tap EQUAL E         &kp R                   &kp T        &kp Y              &hold_tap UNDER U        &kp I                      &kp O                  &hold_tap PRINTSCREEN P   &kp BSPC
-                &kp TAB               &hold_tap LEFT_GUI A  &hold_tap LEFT_ALT S  &hold_tap LEFT_CONTROL D  &hold_tap LEFT_SHIFT F  &kp G        &hold_tap MINUS H  &hold_tap RIGHT_SHIFT J  &hold_tap RIGHT_CONTROL K  &hold_tap RIGHT_ALT L  &hold_tap RIGHT_GUI SEMI  &hold_tap GRAVE SQT
-                &media_layer          &kp Z                 &kp X                 &kp C                     &kp V                   &kp B        &kp N              &kp M                    &kp COMMA                  &hold_tap EXCL DOT     &hold_tap BACKSLASH FSLH  &symbol_layer
-                                                                                &nav_layer                &num_layer              &kp ENTER    &kp SPACE          &num_layer               &nav_layer
+                &mt ESCAPE DEL  &kp Q                 &kp W                 &mt EQUAL E         &kp R                   &kp T        &kp Y              &mt UNDER U        &kp I                      &kp O                  &mt PRINTSCREEN P   &kp BSPC
+                &kp TAB               &mt LEFT_GUI A  &mt LEFT_ALT S  &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G        &mt MINUS H  &mt RIGHT_SHIFT J  &mt RIGHT_CONTROL K  &mt RIGHT_ALT L  &mt RIGHT_GUI SEMI  &mt GRAVE SQT
+                &layer SYMBOLS SYMBOLS         &kp Z                 &kp X                 &kp C                     &kp V                   &kp B        &kp N              &kp M                    &kp COMMA                  &mt EXCL DOT     &mt BACKSLASH FSLH  &symbol_layer
+                                                                                &layer NAVIGATION NAVIGATION                &layer NUMBERS NUMBERS              &kp ENTER    &kp SPACE          &layer NUMBERS NUMBERS               &layer NAVIGATION NAVIGATION 
             >;
         };
 
