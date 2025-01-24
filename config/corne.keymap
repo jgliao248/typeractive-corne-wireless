@@ -75,10 +75,6 @@
         dvorak {
             display-name = "Dvorak";
             bindings = <
-                &hold_tap ESCAPE DEL    &hold_tap EXCLAMATION APOS  &kp COMMA  &kp DOT   &hold_tap PRINTSCREEN P  &kp Y        &kp F      &kp G  &kp C  &kp R  &kp L  &kp BSPC
-                &caps_tap             &hold_tap LEFT_GUI A  &hold_tap LEFT_ALT O      &hold_tap LEFT_CONTROL E     &hold_tap LEFT_SHIFT U  &kp I        &kp D      &kp H  &kp T  &kp N  &kp S  &kp MINUS
-                &media_layer          &kp SEMI                    &kp Q      &kp J     &kp K  &kp X        &kp B      &kp M  &kp W  &kp V  &kp Z  &kp SLASH
-                                                                                &nav_layer                &num_layer              &kp ENTER    &kp SPACE          &num_layer               &nav_layer
                 // ╭────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────╮    ╭────────────────────────┬────────────────────────┬────────────────────────┬───────────────────────┬────────────────────────┬────────────────────────╮
                         &mt ESCAPE DEL        &hm_L EXCLAMATION APOS          &kp COMMA             &hm_L EXCL DOT         &hm_L PRINTSCREEN P             &kp Y                        &kp F                 &kp G                     &kp C                   &kp R               &kp L                       &kp BSPC
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
