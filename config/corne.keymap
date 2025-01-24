@@ -49,7 +49,14 @@
 #include "includes/behaviors_homerow_mods.dtsi"
 #include "includes/mouse_keys.dtsi"
 
-#include "includes/custom_behaviors.dtsi"
+//#include "includes/custom_behaviors.dtsi"
+
+ZMK_BEHAVIOR(hrm, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <125>;
+    bindings = <&mo NUMBERS>, <&to NUMBERS>;
+)
 
 / {
 
@@ -65,7 +72,7 @@
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
                             &kp TAB                 &hm_l LEFT_GUI A       &hm_l LEFT_ALT S      &hm_l LEFT_CONTROL D       &hm_l LEFT_SHIFT F             &kp G                    &hm_r MINUS H           &hm_r RIGHT_SHIFT J    &hm_r RIGHT_CONTROL K      &hm_r RIGHT_ALT L      &hm_r RIGHT_GUI SEMI        &hm_r GRAVE SQT
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
-                            &symbols                   &kp Z                     &kp X                 &kp C                        &kp V                   &kp B                        &kp N                   &kp M                      &kp COMMA           &hm_r EXCL DOT       &hm_r BACKSLASH FSLH            &symbols
+                            &hrm                   &kp Z                     &kp X                 &kp C                        &kp V                   &kp B                        &kp N                   &kp M                      &kp COMMA           &hm_r EXCL DOT       &hm_r BACKSLASH FSLH            &symbols
                 // ╰────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────╯
                                                                                                       &navigation                 &numbers                 &kp ENTER                    &kp SPACE                 &numbers               &navigation 
                 //                                                                            ╰────────────────────────┴────────────────────────┴────────────────────────╯    ╰────────────────────────┴────────────────────────┴────────────────────────╯

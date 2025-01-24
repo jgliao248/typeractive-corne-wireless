@@ -14,6 +14,7 @@
         numbers: numbers {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            flavor = "tap-preferred";
             bindings = <&mo NUMBERS>, <&tog NUMBERS>;
             tapping-term-ms = <280>;
             quick-tap-ms = <LAYERS_QUICK_TAP_MS>;
