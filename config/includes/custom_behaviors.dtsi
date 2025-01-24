@@ -15,12 +15,12 @@ ZMK_HOLD_TAP(LAY,
 #define SYM LAY SYMBOLS SYMBOLS
 #define NAV LAY NAVIGATION NAVIGATION
 #define MED LAY MEDIA MEDIA
-#define NUM LAY FUNCTION FUNCTION
+#define FUNC LAY FUNCTION FUNCTION
 
 / {
 
     behaviors {
-        
+
 //		num_word: behavior_num_word {
 //			compatible = "zmk,behavior-caps-word";
 //			label = "NUM_WORD";
