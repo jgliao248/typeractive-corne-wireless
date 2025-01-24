@@ -41,10 +41,13 @@
 #define MEDIA 5
 #define FUNCTION 6
 
-#define LAYER(LAYER_NUM) \
+#define LAYER(NAME, LAYER_NUM) \
       ZMK_HOLD_TAP(NAME, bindings = <&mo LAYER_NUM>, <&tog LAYER_NUM>;         \
                tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
                require-prior-idle-ms = <150>; hold-trigger-on-release;)        \
+
+LAYER(symbols, SYMBOLS) 
+LAYER(navigation, NAVIGATION) 
                
 #include "includes/settings.dtsi"
 #include "includes/conditional_layers.dtsi"
@@ -117,11 +120,11 @@
                 // ╭────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────╮    ╭────────────────────────┬────────────────────────┬────────────────────────┬───────────────────────┬────────────────────────┬────────────────────────╮
                         &mt ESCAPE DEL                &kp Q                     &kp W                 &mt EQUAL E                  &kp R                   &kp T                        &kp Y               &hm_r UNDER U                  &kp I                    &kp O           &hm_r PRINTSCREEN P            &kp BSPC
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
-                        &kp TAB                 &hm_l LEFT_GUI A            &hm_l LEFT_ALT S      &hm_l LEFT_CONTROL D       &hm_l LEFT_SHIFT F            &kp G                    &hm_r MINUS H           &hm_r RIGHT_SHIFT J    &hm_r RIGHT_CONTROL K      &hm_r RIGHT_ALT L      &hm_r RIGHT_GUI SEMI        &hm_r GRAVE SQT
+                            &kp TAB                 &hm_l LEFT_GUI A       &hm_l LEFT_ALT S      &hm_l LEFT_CONTROL D       &hm_l LEFT_SHIFT F             &kp G                    &hm_r MINUS H           &hm_r RIGHT_SHIFT J    &hm_r RIGHT_CONTROL K      &hm_r RIGHT_ALT L      &hm_r RIGHT_GUI SEMI        &hm_r GRAVE SQT
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
-                                LAYER(SYMBOLS)         &kp Z                       &kp X                 &kp C                        &kp V                   &kp B                        &kp N               &kp M                       &kp COMMA               &hm_r EXCL DOT     &hm_r BACKSLASH FSLH     &layer SYMBOLS SYMBOLS
+                            symbols                   &kp Z                     &kp X                 &kp C                        &kp V                   &kp B                        &kp N               &kp M                       &kp COMMA               &hm_r EXCL DOT       &hm_r BACKSLASH FSLH            symbols
                 // ╰────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────╯
-                                                                                                &layer NAVIGATION NAVIGATION                &layer NUMBERS NUMBERS              &kp ENTER    &kp SPACE          &layer NUMBERS NUMBERS               &layer NAVIGATION NAVIGATION 
+                                                                                                navigation                &layer NUMBERS NUMBERS              &kp ENTER    &kp SPACE          &layer NUMBERS NUMBERS               navigation 
                 //                                                                            ╰────────────────────────┴────────────────────────┴────────────────────────╯    ╰────────────────────────┴────────────────────────┴────────────────────────╯
             >;
         };
