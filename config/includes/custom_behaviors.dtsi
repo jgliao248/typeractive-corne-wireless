@@ -7,11 +7,11 @@
                    )
 
 
-    MAKE_LAYER(num, &mo NUMBERS) 
+    MAKE_LAYER(num, &mo NUMBERS, &tog NUMBERS) 
     MAKE_LAYER(sym, &mo SYMBOLS, &tog SYMBOLS) 
     MAKE_LAYER(nav, &mo NAVIGATION, &tog NAVIGATION) 
     MAKE_LAYER(med, &mo MEDIA, &tog MEDIA)
-    
+
     behaviors {
 		        num_word: behavior_num_word {
 			compatible = "zmk,behavior-caps-word";
