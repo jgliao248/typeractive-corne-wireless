@@ -18,14 +18,6 @@
 // Source desired key-position labels
 #include "zmk-helpers/key-labels/42.h"
 
-#include "includes/settings.dtsi"
-#include "includes/conditional_layers.dtsi"
-#include "includes/macros.dtsi"
-#include "includes/combos.dtsi"
-#include "includes/behaviors_homerow_mods.dtsi"
-#include "includes/mouse_keys.dtsi"
-
-#include "includes/custom_behaviors.dtsi"
 
 
 &mt {
@@ -50,6 +42,14 @@
 #define FUNCTION 6
 
 
+#include "includes/settings.dtsi"
+#include "includes/conditional_layers.dtsi"
+#include "includes/macros.dtsi"
+#include "includes/combos.dtsi"
+#include "includes/behaviors_homerow_mods.dtsi"
+#include "includes/mouse_keys.dtsi"
+
+#include "includes/custom_behaviors.dtsi"
 
 / {
     behaviors {
@@ -106,9 +106,9 @@
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
                             &kp TAB                 &hm_l LEFT_GUI A       &hm_l LEFT_ALT S      &hm_l LEFT_CONTROL D       &hm_l LEFT_SHIFT F             &kp G                    &hm_r MINUS H           &hm_r RIGHT_SHIFT J    &hm_r RIGHT_CONTROL K      &hm_r RIGHT_ALT L      &hm_r RIGHT_GUI SEMI        &hm_r GRAVE SQT
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
-                            symbols                   &kp Z                     &kp X                 &kp C                        &kp V                   &kp B                        &kp N                   &kp M                      &kp COMMA           &hm_r EXCL DOT       &hm_r BACKSLASH FSLH            symbols
+                            &symbols                   &kp Z                     &kp X                 &kp C                        &kp V                   &kp B                        &kp N                   &kp M                      &kp COMMA           &hm_r EXCL DOT       &hm_r BACKSLASH FSLH            &symbols
                 // ╰────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────╯
-                                                                                                      navigation                 numbers                 &kp ENTER                    &kp SPACE                 numbers               navigation 
+                                                                                                      &navigation                 &numbers                 &kp ENTER                    &kp SPACE                 &numbers               &navigation 
                 //                                                                            ╰────────────────────────┴────────────────────────┴────────────────────────╯    ╰────────────────────────┴────────────────────────┴────────────────────────╯
             >;
         };

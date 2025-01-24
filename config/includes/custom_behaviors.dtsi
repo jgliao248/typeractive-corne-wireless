@@ -1,17 +1,5 @@
 \ {
 
-    #define MAKE_LAYER(NAME, HOLD, TAP) \
-      ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced";            \
-                   tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
-                   require-prior-idle-ms = <150>; hold-trigger-on-release;         \
-                   )
-
-
-    MAKE_LAYER(num, &mo NUMBERS, &tog NUMBERS) 
-    MAKE_LAYER(sym, &mo SYMBOLS, &tog SYMBOLS) 
-    MAKE_LAYER(nav, &mo NAVIGATION, &tog NAVIGATION) 
-    MAKE_LAYER(med, &mo MEDIA, &tog MEDIA)
-
     behaviors {
 		        num_word: behavior_num_word {
 			compatible = "zmk,behavior-caps-word";
@@ -21,5 +9,41 @@
 			continue-list = <BACKSPACE DELETE DOT COMMA>;  adjust as desired
                         ignore-numbers;                                numbers don't deactivate the layer
 		};
+
+        numbers: numbers {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mo NUMBERS>, <&tog NUMBERS>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <QUICK_TAP_MS>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+        };
+
+        symbols: symbols {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mo SYMBOLS>, <&tog SYMBOLS>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <QUICK_TAP_MS>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+        };
+
+        navigation: navigation {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mo NAVIGATION>, <&tog NAVIGATION>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <QUICK_TAP_MS>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+        };
+
+        media: media {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mo MEDIA>, <&tog MEDIA>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <QUICK_TAP_MS>;
+            require-prior-idle-ms = <150>;
+            hold-trigger-on-release;
+        };
 	};
 };
