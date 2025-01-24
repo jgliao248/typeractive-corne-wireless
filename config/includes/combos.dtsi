@@ -1,0 +1,22 @@
+    / {
+    
+        combos {
+            compatible = "zmk,combos";
+
+            combo_layer_change {
+                bindings = <&to 0>; // Default Layer
+                key-positions = <37 40>;
+            };
+
+            combo_dvorak {
+                bindings = <&to 1>; // Dvorak Layer
+                key-positions = <15 37 40>;
+            };
+
+            cap_word_combo {
+                bindings = <&caps_tap>;
+                key-positions = <16 19>;
+            };
+        };
+
+    };

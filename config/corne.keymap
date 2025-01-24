@@ -5,8 +5,8 @@
  * https://nickcoutsos.github.io/keymap-editor/
  */
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+//#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
+//#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 
 #include <behaviors.dtsi>
@@ -19,9 +19,11 @@
 #include "zmk-helpers/key-labels/42.h"
 
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
+
 &mt {
         tapping-term-ms = <250>;
     };
+
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4
@@ -31,9 +33,6 @@
 #define HOLD_TAP_DURATION 175
 #define TO_LAYER_DURATION 150
 
-#define HM_TAPPING_TERM 280
-#define HM_PRIOR_IDLE 150
-
 #define BASE 0
 #define DVORAK 1
 #define NUMBERS 2
@@ -41,6 +40,28 @@
 #define NAVIGATION 4
 #define MEDIA 5
 #define FUNCTION 6
+
+#define LAYER(LAYER_NUM) \
+      ZMK_HOLD_TAP(NAME, bindings = <&mo LAYER_NUM>, <&tog LAYER_NUM>;         \
+               tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
+               require-prior-idle-ms = <150>; hold-trigger-on-release;)        \
+               
+#include "includes/settings.dtsi"
+#include "includes/conditional_layers.dtsi"
+#include "includes/macros.dtsi"
+#include "includes/combos.dtsi"
+#include "includes/behaviours_homerow_mods.dtsi"
+#include "includes/mouse_keys.dtsi"
+
+
+/*                                      42 KEY MATRIX / LAYOUT MAPPING
+
+  ╭────────────────────────┬────────────────────────╮ ╭─────────────────────────┬─────────────────────────╮
+  │  0   1   2   3   4   5 │  6   7   8   9  10  11 │ │ LT5 LT4 LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3 RT4 RT5 │
+  │ 12  13  14  15  16  17 │ 18  19  20  21  22  23 │ │ LM5 LM4 LM3 LM2 LM1 LM0 │ RM0 RM1 RM2 RM3 RM4 RM5 │
+  │ 24  25  26  27  28  29 │ 30  31  32  33  34  35 │ │ LB5 LB4 LB3 LB2 LB1 LB0 │ RB0 RB1 RB2 RB3 RB4 RB5 │
+  ╰───────────╮ 36  37  38 │ 39  40  41 ╭───────────╯ ╰───────────╮ LH2 LH1 LH0 │ RH0 RH1 RH2 ╭───────────╯
+              ╰────────────┴────────────╯                         ╰─────────────┴─────────────╯             */
 
 
 / {
@@ -64,41 +85,6 @@
             flavor = "tap-preferred";
         };
 
-        nav_layer: nav_layer {
-            compatible = "zmk,behavior-tap-dance";
-            label = "NAV_LAYER";
-            #binding-cells = <0>;
-
-            tapping-term-ms = <TO_LAYER_DURATION>;
-            bindings = <&mo 4>, <&to 4>;
-        };
-
-        media_layer: media_layer {
-            compatible = "zmk,behavior-tap-dance";
-            label = "MEDIA_LAYER";
-            #binding-cells = <0>;
-            bindings = <&mo 5>, <&to 5>;
-
-            tapping-term-ms = <TO_LAYER_DURATION>;
-        };
-
-        num_layer: num_layer {
-            compatible = "zmk,behavior-tap-dance";
-            label = "NUM_LAYER";
-            #binding-cells = <0>;
-            bindings = <&mo 2>, <&to 2>;
-
-            tapping-term-ms = <TO_LAYER_DURATION>;
-        };
-
-        symbol_layer: symbol_layer {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SYMBOL_LAYER";
-            #binding-cells = <0>;
-            bindings = <&mo 3>, <&to 3>;
-
-            tapping-term-ms = <TO_LAYER_DURATION>;
-        };
 
         layer: layer {
             compatible = "zmk,behavior-hold-tap";
@@ -109,53 +95,9 @@
             tapping-term-ms = <200>;
         };
 
-        hm_l: homerow_mods_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>,  <&kp>;
-
-            flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM>;
-            quick-tap-ms = <175>;                // repeat on tap-into-hold
-            require-prior-idle-ms = <HM_PRIOR_IDLE>;
-
-            hold-trigger-key-positions = <KEYS_R KEYS_T>;
-            hold-trigger-on-release;
-        };
-
-        hm_r: homerow_mods_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-
-            flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <HM_PRIOR_IDLE>;
-
-            hold-trigger-key-positions = <KEYS_L KEYS_T>;
-            hold-trigger-on-release;
-        };
     };
 
-    combos {
-        compatible = "zmk,combos";
 
-        combo_layer_change {
-            bindings = <&to 0>; // Default Layer
-            key-positions = <37 40>;
-        };
-
-        combo_dvorak {
-            bindings = <&to 1>; // Dvorak Layer
-            key-positions = <15 37 40>;
-        };
-
-        cap_word_combo {
-            bindings = <&caps_tap>;
-            key-positions = <16 19>;
-        };
-    };
 
     macros {
         VS_comment: VS_comment {
@@ -172,10 +114,15 @@
         base {
             display-name = "Base";
             bindings = <
-                &mt ESCAPE DEL  &kp Q                 &kp W                 &mt EQUAL E         &kp R                   &kp T        &kp Y              &mt UNDER U        &kp I                      &kp O                  &mt PRINTSCREEN P   &kp BSPC
-                &kp TAB               &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LEFT_CONTROL D  &hm_l LEFT_SHIFT F  &kp G        &hm_r MINUS H  &hm_r RIGHT_SHIFT J  &hm_r RIGHT_CONTROL K  &hm_r RIGHT_ALT L  &hm_r RIGHT_GUI SEMI  &hm_r GRAVE SQT
-                &layer SYMBOLS SYMBOLS         &kp Z                 &kp X                 &kp C                     &kp V                   &kp B        &kp N              &kp M                    &kp COMMA                  &mt EXCL DOT     &mt BACKSLASH FSLH  &layer SYMBOLS SYMBOLS
-                                                                                &layer NAVIGATION NAVIGATION                &layer NUMBERS NUMBERS              &kp ENTER    &kp SPACE          &layer NUMBERS NUMBERS               &layer NAVIGATION NAVIGATION 
+                // ╭────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────╮    ╭────────────────────────┬────────────────────────┬────────────────────────┬───────────────────────┬────────────────────────┬────────────────────────╮
+                        &mt ESCAPE DEL                &kp Q                     &kp W                 &mt EQUAL E                  &kp R                   &kp T                        &kp Y               &hm_r UNDER U                  &kp I                    &kp O           &hm_r PRINTSCREEN P            &kp BSPC
+                // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
+                        &kp TAB                 &hm_l LEFT_GUI A            &hm_l LEFT_ALT S      &hm_l LEFT_CONTROL D       &hm_l LEFT_SHIFT F            &kp G                    &hm_r MINUS H           &hm_r RIGHT_SHIFT J    &hm_r RIGHT_CONTROL K      &hm_r RIGHT_ALT L      &hm_r RIGHT_GUI SEMI        &hm_r GRAVE SQT
+                // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
+                                LAYER SYMBOLS         &kp Z                       &kp X                 &kp C                        &kp V                   &kp B                        &kp N               &kp M                       &kp COMMA               &hm_r EXCL DOT     &hm_r BACKSLASH FSLH     &layer SYMBOLS SYMBOLS
+                // ╰────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────╯
+                                                                                                &layer NAVIGATION NAVIGATION                &layer NUMBERS NUMBERS              &kp ENTER    &kp SPACE          &layer NUMBERS NUMBERS               &layer NAVIGATION NAVIGATION 
+                //                                                                            ╰────────────────────────┴────────────────────────┴────────────────────────╯    ╰────────────────────────┴────────────────────────┴────────────────────────╯
             >;
         };
 
