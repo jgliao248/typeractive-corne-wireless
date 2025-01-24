@@ -13,6 +13,7 @@
 
         numbers: numbers {
             compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
             bindings = <&mo NUMBERS>, <&tog NUMBERS>;
             tapping-term-ms = <280>;
             quick-tap-ms = <LAYERS_QUICK_TAP_MS>;
@@ -22,6 +23,7 @@
 
         symbols: symbols {
             compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
             bindings = <&mo SYMBOLS>, <&tog SYMBOLS>;
             tapping-term-ms = <280>;
             quick-tap-ms = <LAYERS_QUICK_TAP_MS>;
@@ -31,6 +33,7 @@
 
         navigation: navigation {
             compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
             bindings = <&mo NAVIGATION>, <&tog NAVIGATION>;
             tapping-term-ms = <280>;
             quick-tap-ms = <LAYERS_QUICK_TAP_MS>;
@@ -39,6 +42,7 @@
         };
 
         media: media {
+            #binding-cells = <2>;
             compatible = "zmk,behavior-hold-tap";
             bindings = <&mo MEDIA>, <&tog MEDIA>;
             tapping-term-ms = <280>;
