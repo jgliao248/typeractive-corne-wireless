@@ -8,7 +8,7 @@ ZMK_HOLD_TAP(LAY,
     tapping-term-ms = <LAYERS_TAP_TERM_MS>;
     require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>;
     hold-trigger-on-release;
-    bindings = <&mo>, <&to>;
+    bindings = <&mo>, <&tog>;
 )
 
 #define NUM LAY NUMBERS NUMBERS
@@ -17,18 +17,15 @@ ZMK_HOLD_TAP(LAY,
 #define MED LAY MEDIA MEDIA
 #define FUNC LAY FUNCTION FUNCTION
 
+ZMK_CAPS_WORD(NUM_WORD;
+    layers = <NUMBERS>;                         
+    continue-list = <BACKSPACE DELETE DOT COMMA>;  
+    ignore-numbers; 
+)
+
 / {
 
     behaviors {
-
-//		num_word: behavior_num_word {
-//			compatible = "zmk,behavior-caps-word";
-//			label = "NUM_WORD";
-//			#binding-cells = <0>;
-//            layers = <NUMBERS>;                            // insert location of numbers layer here
-//			continue-list = <BACKSPACE DELETE DOT COMMA>;  // adjust as desired
-//            ignore-numbers;                                // numbers don't deactivate the layer
-//		};
 
         caps_tap: caps_tap {
             compatible = "zmk,behavior-tap-dance";
