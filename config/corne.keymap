@@ -107,9 +107,15 @@
 //       ZMK_HOLD_TAP(LAY, bindings =  <&mo>, <&to>;         \
 //                tapping-term-ms = <LAYERS_TAP_TERM_MS>; quick-tap-ms = <LAYERS_QUICK_TAP_MS>;         \
 //                require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>; hold-trigger-on-release;)     \
-ZMK_HOLD_TAP(LAY, bindings =  <&mo>, <&to>;         
-               tapping-term-ms = <LAYERS_TAP_TERM_MS>; quick-tap-ms = <LAYERS_QUICK_TAP_MS>;         
-               require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>; hold-trigger-on-release;)     
+
+
+ZMK_HOLD_TAP(LAY,
+    flavor = "balanced";
+    tapping-term-ms = <LAYERS_TAP_TERM_MS>;
+    require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>;
+    hold-trigger-on-release;
+    bindings = <&mo>, <&to>;
+)
 #define SYM LAY SYMBOLS SYMBOLS
 // MAKE_LAYER(num, <&mo NUMBERS>, <&tog NUMBERS>) 
 
