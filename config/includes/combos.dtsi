@@ -35,7 +35,6 @@
             tapping-term-ms = <CAPS_TAP_DURATION>;
             bindings = <&caps_word>, <&kp CAPS>;
 
-            label = "CAPS_TAP";
         };
         };
 

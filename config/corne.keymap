@@ -55,13 +55,13 @@
 #define LAYERS_TAP_TERM_MS 175
 #define LAYERS_PRIOR_IDLE_MS 150
 
-ZMK_HOLD_TAP(SYM,
-    flavor = "balanced";
-    tapping-term-ms = <LAYERS_TAP_TERM_MS>;
-    require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>;
-    hold-trigger-on-release;
-    bindings = <&mo SYMBOLS>, <&to SYMBOLS>;
-)
+// ZMK_HOLD_TAP(SYM,
+//     flavor = "balanced";
+//     tapping-term-ms = <LAYERS_TAP_TERM_MS>;
+//     require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>;
+//     hold-trigger-on-release;
+//     bindings = <&mo SYMBOLS>, <&to SYMBOLS>;
+// )
 
 // ZMK_HOLD_TAP(SYM,
 //     flavor = "balanced";
@@ -102,6 +102,17 @@ ZMK_HOLD_TAP(SYM,
 //     quick-tap-ms = <125>;
 //     bindings = <&mo NUMBERS>, <&to NUMBERS>;
 // )
+
+#define MAKE_LAYER(NAME, HOLD, TAP) \
+      ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>;         \
+               tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
+               require-prior-idle-ms = <150>; hold-trigger-on-release;)        \
+
+
+// MAKE_LAYER(num, <&mo NUMBERS>, <&tog NUMBERS>) 
+MAKE_LAYER(SYM, &mo SYMBOLS, &tog SYMBOLS) 
+// MAKE_LAYER(nav, &mo NAVIGATION, &tog NAVIGATION) 
+// MAKE_LAYER(med, &mo MEDIA, &tog MEDIA)
 
 
 / {
