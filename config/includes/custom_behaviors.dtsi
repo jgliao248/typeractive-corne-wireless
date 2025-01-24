@@ -1,5 +1,23 @@
+#define LAYERS_QUICK_TAP_MS 280
+#define LAYERS_TAP_TERM_MS 175
+#define LAYERS_PRIOR_IDLE_MS 150
+#define CAPS_TAP_DURATION 150
+
+ZMK_HOLD_TAP(LAY,
+    flavor = "balanced";
+    tapping-term-ms = <LAYERS_TAP_TERM_MS>;
+    require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>;
+    hold-trigger-on-release;
+    bindings = <&mo>, <&to>;
+)
+
+#define NUM LAY NUMBERS NUMBERS
+#define SYM LAY SYMBOLS SYMBOLS
+#define NAV LAY NAVIGATION NAVIGATION
+#define MED LAY MEDIA MEDIA
+#define NUM LAY FUNCTION FUNCTION
+
 / {
-    #define LAYERS_QUICK_TAP_MS 175
 
     behaviors {
 		num_word: behavior_num_word {
@@ -11,54 +29,11 @@
             ignore-numbers;                                // numbers don't deactivate the layer
 		};
 
-        numbers: numbers {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            bindings = <&mo NUMBERS>, <&tog NUMBERS>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <LAYERS_QUICK_TAP_MS>;
-            require-prior-idle-ms = <150>;
-            hold-trigger-on-release;
-        };
-
-        symbols: symbols {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&mo SYMBOLS>, <&tog SYMBOLS>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <LAYERS_QUICK_TAP_MS>;
-            require-prior-idle-ms = <150>;
-            hold-trigger-on-release;
-        };
-
-        navigation: navigation {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&mo NAVIGATION>, <&tog NAVIGATION>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <LAYERS_QUICK_TAP_MS>;
-            require-prior-idle-ms = <150>;
-            hold-trigger-on-release;
-        };
-
-        media: media {
-            #binding-cells = <2>;
-            compatible = "zmk,behavior-hold-tap";
-            bindings = <&mo MEDIA>, <&tog MEDIA>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <LAYERS_QUICK_TAP_MS>;
-            require-prior-idle-ms = <150>;
-            hold-trigger-on-release;
-        };
-
         caps_tap: caps_tap {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <CAPS_TAP_DURATION>;
             bindings = <&caps_word>, <&kp CAPS>;
-
-            label = "CAPS_TAP";
         };
 	};
 };

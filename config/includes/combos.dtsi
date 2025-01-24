@@ -28,14 +28,7 @@
             };
         };
 
-        behaviors {
-            caps_tap: caps_tap {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <CAPS_TAP_DURATION>;
-            bindings = <&caps_word>, <&kp CAPS>;
+        
 
-        };
-        };
 
     };
