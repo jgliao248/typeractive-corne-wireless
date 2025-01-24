@@ -105,8 +105,8 @@
 
 #define MAKE_LAYER(NAME, HOLD, TAP) \
       ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>;         \
-               tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
-               require-prior-idle-ms = <150>; hold-trigger-on-release;)        \
+               tapping-term-ms = <LAYERS_TAP_TERM_MS>; quick-tap-ms = <LAYERS_QUICK_TAP_MS>;         \
+               require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>; hold-trigger-on-release;)        \
 
 
 // MAKE_LAYER(num, <&mo NUMBERS>, <&tog NUMBERS>) 
