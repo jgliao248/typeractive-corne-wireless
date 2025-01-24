@@ -52,48 +52,7 @@
 #include "includes/custom_behaviors.dtsi"
 
 / {
-    behaviors {
-        caps_tap: caps_tap {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <CAPS_TAP_DURATION>;
-            bindings = <&caps_word>, <&kp CAPS>;
 
-            label = "CAPS_TAP";
-        };
-
-        hold_tap: hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_TAP";
-            bindings = <&kp>, <&kp>;
-            #binding-cells = <2>;
-
-            tapping-term-ms = <HOLD_TAP_DURATION>;
-            flavor = "tap-preferred";
-        };
-
-
-        layer: layer {
-            compatible = "zmk,behavior-hold-tap";
-            label = "layer";
-            bindings = <&mo>, <&tog>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-
-    };
-
-
-
-    macros {
-        VS_comment: VS_comment {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(K) &kp C>;
-            label = "VS_COMMENT";
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -120,6 +79,15 @@
                 &caps_tap             &hold_tap LEFT_GUI A  &hold_tap LEFT_ALT O      &hold_tap LEFT_CONTROL E     &hold_tap LEFT_SHIFT U  &kp I        &kp D      &kp H  &kp T  &kp N  &kp S  &kp MINUS
                 &media_layer          &kp SEMI                    &kp Q      &kp J     &kp K  &kp X        &kp B      &kp M  &kp W  &kp V  &kp Z  &kp SLASH
                                                                                 &nav_layer                &num_layer              &kp ENTER    &kp SPACE          &num_layer               &nav_layer
+                // ╭────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────╮    ╭────────────────────────┬────────────────────────┬────────────────────────┬───────────────────────┬────────────────────────┬────────────────────────╮
+                        &mt ESCAPE DEL        &hm_L EXCLAMATION APOS          &kp COMMA             &hm_L EXCL DOT         &hm_L PRINTSCREEN P             &kp Y                        &kp F                 &kp G                     &kp C                   &kp R               &kp L                       &kp BSPC
+                // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
+                            &kp TAB                 &hm_l LEFT_GUI A       &hm_l LEFT_ALT O      &hm_l LEFT_CONTROL E       &hm_l LEFT_SHIFT U             &kp I                        &kp D              &hm_r RIGHT_SHIFT H    &hm_r RIGHT_CONTROL T      &hm_r RIGHT_ALT N      &hm_r RIGHT_GUI S        &kp MINUS
+                // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
+                            &symbols                   &kp SEMI                     &kp Q                 &kp J                        &kp K                   &kp X                        &kp B                   &kp M                      &kp W            &kp V                       &kp Z            &symbols
+                // ╰────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────╯
+                                                                                                      &navigation                 &numbers                 &kp ENTER                    &kp SPACE                 &numbers               &navigation 
+                //                                                                            ╰────────────────────────┴────────────────────────┴────────────────────────╯    ╰────────────────────────┴────────────────────────┴────────────────────────╯
             >;
         };
 

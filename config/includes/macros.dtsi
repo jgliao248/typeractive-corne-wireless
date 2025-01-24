@@ -50,6 +50,13 @@
                 &kp GRAVE &kp GRAVE &kp GRAVE &kp UP
             >;
         };
+
+        VS_comment: VS_comment {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(K) &kp C>;
+            label = "VS_COMMENT";
+        };
     };
 
 
