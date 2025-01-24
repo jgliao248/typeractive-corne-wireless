@@ -32,7 +32,7 @@
                 key-positions = <LB5 RB5>;
             };
 
-            media_combo {
+            function_combo {
                 bindings = <&to FUNCTION>;
                 key-positions = <LH2 RH2>;
             };
