@@ -38,7 +38,7 @@
             };
 
             left_copy_combo {
-                bindings = <&kp LS(C)>;
+                bindings = <&kp LC(C)>;
                 key-positions = <LH0 LB2>;
             };
         };
