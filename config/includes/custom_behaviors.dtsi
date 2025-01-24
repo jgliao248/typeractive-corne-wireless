@@ -17,12 +17,6 @@ ZMK_HOLD_TAP(LAY,
 #define MED LAY MEDIA MEDIA
 #define FUNC LAY FUNCTION FUNCTION
 
-ZMK_CAPS_WORD(NUM_WORD;
-    layers = <NUMBERS>;                         
-    continue-list = <BACKSPACE DELETE DOT COMMA>;  
-    ignore-numbers; 
-)
-
 / {
 
     behaviors {
