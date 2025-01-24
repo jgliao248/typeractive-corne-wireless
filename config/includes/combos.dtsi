@@ -13,7 +13,7 @@
             compatible = "zmk,combos";
 
             combo_layer_change {
-                bindings = <&to 0>; // Default Layer
+                bindings = <&to BASE>; // Default Layer
                 key-positions = <LH1 RH1>;
             };
 
@@ -25,6 +25,21 @@
             cap_word_combo {
                 bindings = <&caps_tap>;
                 key-positions = <LM1 RM1>;
+            };
+
+            media_combo {
+                bindings = <&to MEDIA>;
+                key-positions = <LB5 RB5>;
+            };
+
+            media_combo {
+                bindings = <&to FUNCTION>;
+                key-positions = <LH2 RH2>;
+            };
+
+            left_copy_combo {
+                bindings = <&kp LS(C)>;
+                key-positions = <LH0 LB2>;
             };
         };
 
