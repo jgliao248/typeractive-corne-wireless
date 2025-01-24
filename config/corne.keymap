@@ -46,10 +46,10 @@
                tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
                require-prior-idle-ms = <150>; hold-trigger-on-release;)        \
 
-MAKE_LAYER(numbers, &mo NUMBERS, &to NUMBERS) 
-MAKE_LAYER(symbols, &mo SYMBOLS, &to SYMBOLS) 
-MAKE_LAYER(navigation, &mo NAVIGATION, &to NAVIGATION) 
-MAKE_LAYER(media, &mo MEDIA, &to MEDIA)
+MAKE_LAYER(numbers, &mo NUMBERS, &tog NUMBERS) 
+MAKE_LAYER(symbols, &mo SYMBOLS, &tog SYMBOLS) 
+MAKE_LAYER(navigation, &mo NAVIGATION, &tog NAVIGATION) 
+MAKE_LAYER(media, &mo MEDIA, &tog MEDIA)
 
 #include "includes/settings.dtsi"
 #include "includes/conditional_layers.dtsi"
