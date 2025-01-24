@@ -103,11 +103,13 @@
 //     bindings = <&mo NUMBERS>, <&to NUMBERS>;
 // )
 
-#define MAKE_LAYER() \
-      ZMK_HOLD_TAP(LAY, bindings =  <&mo>, <&to>;         \
-               tapping-term-ms = <LAYERS_TAP_TERM_MS>; quick-tap-ms = <LAYERS_QUICK_TAP_MS>;         \
-               require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>; hold-trigger-on-release;)     \
-MAKE_LAYER() 
+// #define MAKE_LAYER() \
+//       ZMK_HOLD_TAP(LAY, bindings =  <&mo>, <&to>;         \
+//                tapping-term-ms = <LAYERS_TAP_TERM_MS>; quick-tap-ms = <LAYERS_QUICK_TAP_MS>;         \
+//                require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>; hold-trigger-on-release;)     \
+ZMK_HOLD_TAP(LAY, bindings =  <&mo>, <&to>;         
+               tapping-term-ms = <LAYERS_TAP_TERM_MS>; quick-tap-ms = <LAYERS_QUICK_TAP_MS>;         
+               require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>; hold-trigger-on-release;)     
 #define SYM LAY SYMBOLS SYMBOLS
 // MAKE_LAYER(num, <&mo NUMBERS>, <&tog NUMBERS>) 
 
