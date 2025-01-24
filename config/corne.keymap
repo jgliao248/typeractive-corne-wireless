@@ -41,13 +41,13 @@
 #define MEDIA 5
 #define FUNCTION 6
 
-#define LAYER(NAME, LAYER_NUM) \
-      ZMK_HOLD_TAP(NAME, bindings = <&mo LAYER_NUM>, <&tog LAYER_NUM>;         \
+#define MAKE_LAYER(NAME, HOLD, TAP) \
+      ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>;         \
                tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
                require-prior-idle-ms = <150>; hold-trigger-on-release;)        \
 
-LAYER(symbols, SYMBOLS) 
-LAYER(navigation, NAVIGATION) 
+MAKE_LAYER(symbols, &mo SYMBOLS, &to SYMBOLS) 
+MAKE_LAYER(navigation, NAVIGATION) 
                
 #include "includes/settings.dtsi"
 #include "includes/conditional_layers.dtsi"
