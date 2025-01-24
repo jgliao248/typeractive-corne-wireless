@@ -24,7 +24,9 @@
 #include "includes/combos.dtsi"
 #include "includes/behaviors_homerow_mods.dtsi"
 #include "includes/mouse_keys.dtsi"
-&caps_word { continue-list = <UNDERSCORE MINUS>; };
+
+#include "includes/custom_behaviors.dtsi"
+
 
 &mt {
         tapping-term-ms = <250>;
@@ -47,27 +49,6 @@
 #define MEDIA 5
 #define FUNCTION 6
 
-// #define MAKE_LAYER(NAME, HOLD, TAP) \
-//   ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced";            \
-//                tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
-//                require-prior-idle-ms = <150>; hold-trigger-on-release;         \
-//                )
-
-
-// MAKE_LAYER(num, &mo NUMBERS) 
-// MAKE_LAYER(sym, &mo SYMBOLS, &tog SYMBOLS) 
-// MAKE_LAYER(nav, &mo NAVIGATION, &tog NAVIGATION) 
-// MAKE_LAYER(med, &mo MEDIA, &tog MEDIA)
-
-
-#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS)                                 \
-  ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced";            \
-               tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
-               require-prior-idle-ms = <150>; hold-trigger-on-release;         \
-               hold-trigger-key-positions = <TRIGGER_POS>;)
-
-MAKE_HRM(hml, &kp, &kp, KEYS_R KEYS_T) // Left-hand HRMs.
-MAKE_HRM(hmr, &kp, &kp, KEYS_L KEYS_T) // Right-hand HRMs.
 
 
 / {
