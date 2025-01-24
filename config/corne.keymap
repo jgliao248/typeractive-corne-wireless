@@ -55,13 +55,13 @@
 #define LAYERS_TAP_TERM_MS 175
 #define LAYERS_PRIOR_IDLE_MS 150
 
-ZMK_HOLD_TAP(SYM,
-    flavor = "balanced";
-    tapping-term-ms = <LAYERS_TAP_TERM_MS>;
-    require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>;
-    hold-trigger-on-release;
-    bindings = <&mo>, <&to>;
-)
+// ZMK_HOLD_TAP(SYM,
+//     flavor = "balanced";
+//     tapping-term-ms = <LAYERS_TAP_TERM_MS>;
+//     require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>;
+//     hold-trigger-on-release;
+//     bindings = <&mo>, <&to>;
+// )
 
 // ZMK_HOLD_TAP(SYM,
 //     flavor = "balanced";
@@ -103,14 +103,14 @@ ZMK_HOLD_TAP(SYM,
 //     bindings = <&mo NUMBERS>, <&to NUMBERS>;
 // )
 
-// #define MAKE_LAYER(NAME, HOLD, TAP, LAYER_NUM) \
-//       ZMK_HOLD_TAP(NAME, bindings = <HOLD LAYER_NUM>, <TAPLAYER_NUM >;         \
-//                tapping-term-ms = <LAYERS_TAP_TERM_MS>; quick-tap-ms = <LAYERS_QUICK_TAP_MS>;         \
-//                require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>; hold-trigger-on-release;)        \
+#define MAKE_LAYER(NAME, LAYER_NUM) \
+      ZMK_HOLD_TAP(NAME, bindings =  <&mo LAYER_NUM>, <&to LAYER_NUM>;         \
+               tapping-term-ms = <LAYERS_TAP_TERM_MS>; quick-tap-ms = <LAYERS_QUICK_TAP_MS>;         \
+               require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>; hold-trigger-on-release;)     \
 
 
 // MAKE_LAYER(num, <&mo NUMBERS>, <&tog NUMBERS>) 
-// MAKE_LAYER(SYM, &mo, &tog, SYMBOLS) 
+MAKE_LAYER(SYM, SYMBOLS) 
 // MAKE_LAYER(nav, &mo NAVIGATION, &tog NAVIGATION) 
 // MAKE_LAYER(med, &mo MEDIA, &tog MEDIA)
 
@@ -129,9 +129,9 @@ ZMK_HOLD_TAP(SYM,
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
                             &kp TAB                 &hm_l LEFT_GUI A       &hm_l LEFT_ALT S      &hm_l LEFT_CONTROL D       &hm_l LEFT_SHIFT F             &kp G                    &hm_r MINUS H           &hm_r RIGHT_SHIFT J    &hm_r RIGHT_CONTROL K      &hm_r RIGHT_ALT L      &hm_r RIGHT_GUI SEMI        &hm_r GRAVE SQT
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
-                            &SYM SYMBOLS SYMBOLS                 &kp Z                     &kp X                 &kp C                        &kp V                   &kp B                        &kp N                   &kp M                      &kp COMMA           &hm_r EXCL DOT       &hm_r BACKSLASH FSLH            &SYM SYMBOLS SYMBOLS    
+                            &SYM                &kp Z                     &kp X                 &kp C                        &kp V                   &kp B                        &kp N                   &kp M                      &kp COMMA           &hm_r EXCL DOT       &hm_r BACKSLASH FSLH            &SYM   
                 // ╰────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────╯
-                                                                                                      &SYM SYMBOLS SYMBOLS                     &SYM SYMBOLS SYMBOLS                     &kp ENTER                    &kp SPACE                 &SYM SYMBOLS SYMBOLS                   &SYM SYMBOLS SYMBOLS     
+                                                                                                      &SYM                    &SYM                    &kp ENTER                    &kp SPACE                 &SYM                  &SYM    
                 //                                                                            ╰────────────────────────┴────────────────────────┴────────────────────────╯    ╰────────────────────────┴────────────────────────┴────────────────────────╯
             >;
         };
