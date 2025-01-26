@@ -7,7 +7,6 @@ ZMK_HOLD_TAP(LAY,
     flavor = "balanced";
     tapping-term-ms = <LAYERS_TAP_TERM_MS>;
     require-prior-idle-ms = <LAYERS_PRIOR_IDLE_MS>;
-    hold-trigger-on-release;
     bindings = <&mo>, <&tog>;
 )
 
