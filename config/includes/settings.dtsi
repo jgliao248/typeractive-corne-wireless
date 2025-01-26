@@ -45,7 +45,7 @@
     };
 #endif
 
-#ifdef HAS_UROB
+
     &num_word {
         layers = <NUMBERS>;
         continue-list = <
@@ -55,4 +55,3 @@
         >;
         ignore-modifiers;  // modifiers don't deactivate the layer
     };
-#endif
