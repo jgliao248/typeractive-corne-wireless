@@ -18,7 +18,7 @@
             };
 
             combo_dvorak {
-                bindings = <&to 1>; // Dvorak Layer
+                bindings = <&tog 1>; // Dvorak Layer
                 key-positions = <15 37 40>;
             };
 
