@@ -18,8 +18,8 @@
             };
 
             combo_dvorak {
-                bindings = <&tog 1>; // Dvorak Layer
-                key-positions = <15 37 40>;
+                bindings = <&tog DVORAK>; // Dvorak Layer
+                key-positions = <LH1 RH1 LM3>;
             };
 
             cap_word_combo {
@@ -28,12 +28,12 @@
             };
 
             media_combo {
-                bindings = <&to MEDIA>;
+                bindings = <&tog MEDIA>;
                 key-positions = <LB5 RB5>;
             };
 
             function_combo {
-                bindings = <&to FUNCTION>;
+                bindings = <&tog FUNCTION>;
                 key-positions = <LH2 RH2>;
             };
 

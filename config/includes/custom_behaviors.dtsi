@@ -16,6 +16,18 @@ ZMK_HOLD_TAP(LAY,
 #define MED LAY MEDIA MEDIA
 #define FUNC LAY FUNCTION FUNCTION
 
+ZMK_MACRO(CODE_BLCK,
+    bindings = <
+                &kp GRAVE &kp GRAVE &kp GRAVE &kp LS(RET)
+                &kp GRAVE &kp GRAVE &kp GRAVE &kp UP
+            >;
+)
+
+ZMK_TAP_DANCE(QUOTES,
+    tapping-term-ms = <200>;
+    bindings = <&kp SQT, <&kp GRAVE>, <CODE_BLCK>;
+)
+
 / {
 
     behaviors {
