@@ -24,6 +24,18 @@
         tapping-term-ms = <250>;
     };
 
+&mmv {
+  acceleration-exponent = <1>;      // 1
+  time-to-max-speed-ms = <500>;    // 40
+  delay-ms = <0>;                   // 0
+};
+
+&msc {
+  acceleration-exponent = <1>;      // 0
+  time-to-max-speed-ms = <5000>;    // 40
+  delay-ms = <0>;                   // 10
+};
+
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4
@@ -37,15 +49,11 @@
 #define MEDIA 5
 #define FUNCTION 6
 
-#define HAS_MOUSE_KEYS
-
-
 #include "includes/settings.dtsi"
 #include "includes/conditional_layers.dtsi"
 #include "includes/macros.dtsi"
 
 #include "includes/behaviors_homerow_mods.dtsi"
-#include "includes/mouse_keys.dtsi"
 
 #include "includes/custom_behaviors.dtsi"
 #include "includes/combos.dtsi"
@@ -123,11 +131,11 @@
             display-name = "Navigation";
             bindings = <
                 // ╭────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────┬────────────────────────╮    ╭────────────────────────┬────────────────────────┬────────────────────────┬───────────────────────┬────────────────────────┬────────────────────────╮
-                            &none                   &mkp MB4                    &none                   &mmv MOVE_UP                 &none                   &mkp MB5                    &kp PAGE_UP                 &none                   &kp UP_ARROW                &none                   &none                   &none
+                            &none                   &mkp MB4                    &none                   &mmv MOVE_UP            &none                   &mkp MB5                    &kp PAGE_UP                 &none                   &kp UP_ARROW                &none                   &none                   &none
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
-                            &none                   &none                       &U_MS_L                 &U_MS_D                 &U_MS_R                 &U_WH_U                     &kp HOME                    &kp LEFT                &kp DOWN                    &kp RIGHT               &kp END                 &none
+                            &none                   &none                   &mmv MOVE_LEFT              &mmv MOVE_DOWN          &mmv MOVE_RIGHT         &msc SCRL_UP                &kp HOME                    &kp LEFT                &kp DOWN                    &kp RIGHT               &kp END                 &none
                 // ├────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────┤
-                            &none                   &none                       &none                   &none                   &none                   &U_WH_D                     &kp PAGE_DOWN               &none                   &none                       &none                   &none                   &none
+                            &none                   &none                       &none                   &none                   &none                   &msc SCRL_DOWN              &kp PAGE_DOWN               &none                   &none                       &none                   &none                   &none
                 // ╰────────────────────────┴────────────────────────┴────────────────────────┴────────────────────────┼────────────────────────┼────────────────────────┤    ├────────────────────────┼────────────────────────┼────────────────────────┼───────────────────────┼────────────────────────┼────────────────────────╯
                                                                                                         &NAV                    &mkp LCLK               &mkp RCLK                   &kp RCTRL                   &none                   &NAV
                 //                                                                            ╰────────────────────────┴────────────────────────┴────────────────────────╯    ╰────────────────────────┴────────────────────────┴────────────────────────╯
