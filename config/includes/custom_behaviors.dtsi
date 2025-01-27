@@ -25,7 +25,7 @@ ZMK_MACRO(CODE_BLCK,
 
 ZMK_TAP_DANCE(QUOTES,
     tapping-term-ms = <200>;
-    bindings = <&kp SQT>, <&kp GRAVE>, <CODE_BLCK>;
+    bindings = <&kp SQT>, <&kp GRAVE>, <&CODE_BLCK>;
 )
 
 / {
