@@ -19,7 +19,7 @@
 
             combo_dvorak {
                 bindings = <&tog DVORAK>; // Dvorak Layer
-                key-positions = <LH1 RH1 LM3>;
+                key-positions = <LH1 RH1 LM2>;
             };
 
             cap_word_combo {
@@ -40,6 +40,11 @@
             left_copy_combo {
                 bindings = <&kp LC(C)>;
                 key-positions = <LH0 LB2>;
+            };
+
+            combo_game {
+                bindings = <&tog GAME>; 
+                key-positions = <LT5 RT5>;
             };
         };
 
