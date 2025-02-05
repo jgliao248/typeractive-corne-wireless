@@ -6,3 +6,4 @@
 - https://github.com/manna-harbour/miryoku_zmk
 - https://github.com/caksoylar/keymap-drawer
 - https://github.com/urob/zmk-auto-layer
+- https://github.com/M165437/nice-view-gem
