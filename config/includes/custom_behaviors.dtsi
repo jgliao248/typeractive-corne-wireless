@@ -29,17 +29,17 @@ ZMK_TAP_DANCE(QUOTES,
 )
 
 ZMK_TAP_DANCE(LEFT_BRACKS,
-    tapping-term-ms = <200>;
+    tapping-term-ms = <250>;
     bindings = <&kp LPAR>, <&kp LBKT>, <&kp RS(LBKT)>;
 )
 
 ZMK_TAP_DANCE(RIGHT_BRACKS,
-    tapping-term-ms = <200>;
+    tapping-term-ms = <250>;
     bindings = <&kp RPAR>, <&kp RBKT>, <&kp LS(RBKT)>;
 )
 
 ZMK_MOD_MORPH(BRACKS,
-    bindings = <&LEFT_BRACKS>, <&LEFT_BRACKS>;
+    bindings = <&LEFT_BRACKS>, <&RIGHT_BRACKS>;
     mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
 )
 
