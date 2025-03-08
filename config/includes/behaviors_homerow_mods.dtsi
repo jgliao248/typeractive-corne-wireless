@@ -2,7 +2,7 @@
 
 #define HM_TAPPING_TERM 225
 #define HM_TAPPING_TERM_FAST 175
-#define HM_PRIOR_IDLE 125
+#define HM_PRIOR_IDLE 175
 
 / {
 
